@@ -71,5 +71,6 @@ type Port struct {
 	Device string
 	Port   int
 	Type   PortType
+	Vfnum  int
 	Name   string
 }

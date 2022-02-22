@@ -124,6 +124,8 @@ func parsePorts(msgs []genetlink.Message) ([]*Port, error) {
 				p.Port = int(ad.Uint32())
 			case unix.DEVLINK_ATTR_PORT_TYPE:
 				p.Type = PortType(ad.Uint16())
+			case unix.DEVLINK_ATTR_PORT_PCI_VF_NUMBER:
+				p.Vfnum = int(ad.Uint32())
 			// Allow netdev/ibdev name to share the same "Name" field.
 			case unix.DEVLINK_ATTR_PORT_NETDEV_NAME, unix.DEVLINK_ATTR_PORT_IBDEV_NAME:
 				p.Name = ad.String()
